@@ -32,4 +32,25 @@ scope : ['profile','email']
 app.get('/auth/google/callback',
 passport.authenticate('google')
 );
+
+/**
+ * test rount for checking that google login authentication cookie
+ * based authentication is working
+ */
+app.get('/api/current_user', (req,res) => {
+    res.send(req.user);
+});
+
+/**
+ * api call for log out
+ * passport profide this functionality to logout 
+ * 
+ */
+app.get('/api/logout',(req, res) =>{ 
+    console.log('logging out out',req.user);
+    const user = req.user;
+    req.logout();
+    res.send('logout user'+user);
+   });
 }
+
