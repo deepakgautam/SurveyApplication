@@ -28,9 +28,13 @@ scope : ['profile','email']
  *  than we nedd to again go back to google to verify whether 
  *  code provided  is authenticated or not 
  *  so we will do  use again passpot to do this 
+ *  chained other call backs also like redirect to some url after login
  */
 app.get('/auth/google/callback',
-passport.authenticate('google')
+passport.authenticate('google'),
+(req,res) => {
+    res.redirect('/surveys');
+}
 );
 
 /**
@@ -47,10 +51,9 @@ app.get('/api/current_user', (req,res) => {
  * 
  */
 app.get('/api/logout',(req, res) =>{ 
-    console.log('logging out out',req.user);
     const user = req.user;
     req.logout();
-    res.send('logout user'+user);
+    res.redirect('/')
    });
 }
 

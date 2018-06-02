@@ -18,10 +18,9 @@ passport.use(
         callbackURL : '/auth/google/callback',
         proxy : true
     },
-    (accessToken, refreshToken, profile, done) => {
+   async (accessToken, refreshToken, profile, done) => {
        // check user exists in db or not 
-       User.findOne({googleId : profile.id})
-       .then((existingUser)=>{
+      const existingUser = await User.findOne({googleId : profile.id});
         if (existingUser) {
          console.log('a user already exists with whis google id so not creating new instance of user in db');
         // done is a function provided by passport as a call back function after completion of all process 
@@ -30,17 +29,10 @@ passport.use(
         } else {
             console.log('creating a new instance in db with');
             // create a user save it (saving is async operation) on completion of saving call done function with newly created dbuser
-            new User({
-                googleId: profile.id,
-                name : profile.displayName
-               })
-               .save()
-               .then((dbUser) =>{
-                    console.log("new user created in db : " +dbUser);
-                    done(null, dbUser);
-                });
+            const newUser= await User({googleId: profile.id,name : profile.displayName}).save()
+            console.log("new user created in db : " +newUser);
+            done(null, newUser);
         }
-       });
       }
    )
 );
