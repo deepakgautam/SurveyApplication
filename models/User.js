@@ -3,8 +3,9 @@ const {Schema} = mongoose;// same as const schema  = mongoose.Schema;
 
 // mongoose has a limitation we need to define a fixed schema 
 const userSchema = new Schema({
- googleId : String ,
- name :String
+ googleId : String,
+ name :String,
+ credit: {type: Number,default: 0}
 });
 /**
  * create a modal users of type userSchema if not exists 

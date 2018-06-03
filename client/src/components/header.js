@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
 import {connect } from 'react-redux';
+import Payments from './payments'
 class  Header extends Component { 
   renderHeader() {
     switch(this.props.AuthUser) {
@@ -12,7 +13,11 @@ class  Header extends Component {
       case false:
       return   <li><a href="auth/google">Login With Google</a></li>;
       default :
-      return  <li><a href="api/logout">Logout</a></li>;
+      return  [
+               <li key="1"><Payments/></li>,
+               <li key = "2" style= {{"margin":"0 10px"}}>Credit {this.props.AuthUser.credit}</li>,
+               <li key="2"><a href="api/logout">Logout</a></li>
+              ];
     }
  }
  render(){

@@ -11,7 +11,8 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "heroku-postbuild":  "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "author": "Deepak Gautam",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.3",
@@ -30,6 +32,7 @@
     "nodemon": "^1.17.5",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
-    "save": "^2.3.2"
+    "save": "^2.3.2",
+    "stripe": "^6.1.0"
   }
 }
