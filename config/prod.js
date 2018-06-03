@@ -6,4 +6,6 @@ module.exports = {
     cookieKey : process.env.COOKIE_KEY,
     stripPublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
     stripSecretKey: process.env.STRIPE_SECRET_KEY
+
+    
 };
