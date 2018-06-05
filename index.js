@@ -40,6 +40,7 @@ app.use(passport.session());
   */
  require('./routes/billingRouts.js')(app);
 
+
  /**
   * this part of code only run for out deployed verssion 
   * since in deployed verssion  we have only single server 
@@ -88,6 +89,15 @@ app.use(passport.session());
   */
 require('./models/User.js');
 
+/**
+ * 
+ */
+require('./models/surveys.js'); 
+
+/**
+  * calling surveyRoutes with the app object of express
+  */
+ require('./routes/surveyRoutes')(app);
 
 /**
  * if we are working on development enviornment than 

@@ -1,3 +1,11 @@
 #nav-mobile {
     display: block !important
 }
+#root > div > div > nav {
+    background-color : #006400;
+    width: 100%;
+}
+.container {
+    max-width: 100%;
+    width: 100%;
+}
