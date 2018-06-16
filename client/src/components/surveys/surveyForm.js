@@ -42,7 +42,7 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors = {};
 
-  errors.emails = validateEmails(values.emails || '');
+  errors.recipients = validateEmails(values.recipients || '');
 
   _.each(formFields, ({ name }) => {
     if (!values[name]) {
@@ -52,7 +52,11 @@ function validate(values) {
 
   return errors;
 }
-
+/**
+ * this forms  data will be not destroyed on unmount
+ * so if user will click next and again click back he can see the  form fields with privious values 
+ *  
+ */
 export default reduxForm({
   validate,
   form: 'surveyForm',

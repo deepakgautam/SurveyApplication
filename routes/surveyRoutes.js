@@ -14,6 +14,7 @@ module.exports= app => {
      * first create a newSurvey object of type surveys
      */
     app.post('/api/surveys', requireLogin, userHasCredits, async  (req,res) => {
+        console.log('survey api');
         const { title, subject, body, recipients } = req.body; // pull out these data from req.body
         const newSurvey = new Survey({
             title,
