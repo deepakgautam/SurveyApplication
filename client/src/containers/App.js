@@ -2,13 +2,15 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Header from '../components/header';
 import Landing from '../components/landing';
-import Surveys from '../components/surveys';
+import Surveys from '../components/surveys/surveys';
+
 import Dashboard from '../components/dashboard';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {connect } from 'react-redux';
 import * as actions from '../actions/index';
 import {bindActionCreators} from 'redux';
 import Background from '../images/Girly-Pics-014303-800x488.jpg'
+import NewSurveys from '../components/surveys/newSurveys.js'
 
 class  App extends Component {
     componentDidMount() {
@@ -31,7 +33,7 @@ class  App extends Component {
                 <div>
                   <Header/>
                   <Route exact path ="/landing" component ={Landing} />
-                  <Route exact path ="/surveys" component ={Surveys} />
+                  <Route exact path ="/surveys/new" component ={NewSurveys} />
                   <Route exact path ="/dashboard" component ={Dashboard} />
                </div>
             </BrowserRouter>
