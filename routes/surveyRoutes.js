@@ -8,6 +8,10 @@ module.exports= app => {
 
     app.get('/api/surveys/thanks',(req,res) => {
         res.send('thanks for voting :)');
+    });
+    app.post('/api/surveys/webhook',(req,res) => {
+        res.send('reply comes from sendgrid :');
+        res.send({});
     })
     /**
      * on submition of any survey from UI this rout will be called

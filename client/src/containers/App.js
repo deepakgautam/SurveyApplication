@@ -1,9 +1,6 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
 import Header from '../components/header';
 import Landing from '../components/landing';
-import Surveys from '../components/surveys/surveys';
-
 import Dashboard from '../components/dashboard';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {connect } from 'react-redux';
