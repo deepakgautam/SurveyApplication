@@ -93,7 +93,7 @@ module.exports= app => {
     app.get('/api/surveys',requireLogin ,async (req,res) => {
         console.log('get survey list for user '+ req.user);
        const servey_data = await  Survey.find({ownedBy :  req.user.id});
-       console.log('survey data is '+  servey_data);
+       console.log('survey data is ',servey_data);
        res.send(servey_data);
     });
 
