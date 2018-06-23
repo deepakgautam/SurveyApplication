@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {FETCH_USER} from '../utils/constants' 
+import {FETCH_USER,FETCH_SURVEYS} from '../utils/constants' 
 
 // export const  fetchUser = () =>{
 //     return async function(dispatch) {
@@ -23,4 +23,9 @@ export const submitSurvey = (values,history) =>async (dispatch) =>{
      history.push('/surveys');
      dispatch({type : FETCH_USER,payload : res.data});
 
+};
+
+export const fetchSurveys = () =>async (dispatch) =>{
+     const res = await axios.get('/api/surveys'); // res will contains updates user with deducted credits
+     dispatch({type : FETCH_SURVEYS,payload : res.data});
 };

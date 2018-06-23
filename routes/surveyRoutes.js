@@ -55,7 +55,7 @@ module.exports= app => {
 
 
 
-
+// fix need to change after send grid click event starts working
     app.post('/api/surveys/webhook',(req,res) => {
       // extract mail , surveyid and choice from event 
       // here we have used  lodash chain to cain multiple 
@@ -86,6 +86,14 @@ module.exports= app => {
       res.send({});
    });
 
+    /**
+     *  send all the surveys created by a particular user
+     */
+    app.get('/api/surveys',requireLogin ,async (req,res) => {
+       const servey_data = await  Survey.find({ownedBy :  req.user.id});
+       console.log('survey data is ',servey_data);
+       res.send(servey_data);
+    });
 
     /**
      * on submition of any survey from UI this rout will be called

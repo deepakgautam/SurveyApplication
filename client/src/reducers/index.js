@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import AuthReducer from './AuthReducer';
 import {reducer as FormReducerRedux} from 'redux-form';
+import surveyReducer from './surveysReducers'
 
 /* this is the root reducers  for all  reducers
    state is the state the Application state 
@@ -9,6 +10,8 @@ import {reducer as FormReducerRedux} from 'redux-form';
 */
 const rootReducer = combineReducers({
    AuthUser : AuthReducer,
-   form :FormReducerRedux
+   form :FormReducerRedux,
+   surveyRecord : surveyReducer
+
 });
 export default rootReducer;

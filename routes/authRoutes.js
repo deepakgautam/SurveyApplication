@@ -33,7 +33,7 @@ scope : ['profile','email']
 app.get('/auth/google/callback',
 passport.authenticate('google'),
 (req,res) => {
-    res.redirect('/surveys');
+    res.redirect('/dashboard');
 }
 );
 
