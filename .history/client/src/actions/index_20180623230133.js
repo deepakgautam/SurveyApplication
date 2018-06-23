@@ -27,9 +27,7 @@ export const submitSurvey = (values,history) =>async (dispatch) =>{
 
 export const fetchSurveys = () =>async (dispatch) =>{
      console.log('get survey data');
-     alert('test');
      const res = await axios.get('/api/surveys'); // res will contains updates user with deducted credits
-    console.log('got survey data'+JSON.stringify(res.data));
-    alert('test check');
+    console.log('got survey data'+JSON.stringify(res.data);
      dispatch({type : FETCH_SURVEYS,payload : res.data});
 };
