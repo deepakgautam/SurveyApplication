@@ -6,7 +6,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import {connect } from 'react-redux';
 import * as actions from '../actions/index';
 import {bindActionCreators} from 'redux';
-import Background from '../images/Girly-Pics-014303-800x488.jpg'
+import Background from '../images/Year-end-survey-712.png'
 import NewSurveys from '../components/surveys/newSurveys.js'
 
 class  App extends Component {

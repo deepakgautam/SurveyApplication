@@ -1,3 +1,6 @@
+const _ = require('lodash');
+const Path = require('path-parser');
+const {URL} = require('url'); 
 const requireLogin = require('../middlewares/requireLogin.js');
 const userHasCredits = require('../middlewares/userHasCredits.js');
 const mongoose = require('mongoose');
@@ -6,13 +9,84 @@ const Mailer = require('../services/Mailer.js')
 const surveyTemplets =  require('../services/emailTemplets/surveyTemplets.js')
 module.exports= app => {
 
-    app.get('/api/surveys/thanks',(req,res) => {
+    app.get('/api/surveys/:surveyId/:choice',(req,res) => {
         res.send('thanks for voting :)');
     });
+
+
+    // // this is actual hook handler 
+    // // but since my click handler is not working due to some issue with SENDGRID so i  will updated 
+    // // db on mail open instead of on click
+    // app.post('/api/surveys/webhook',(req,res) => {
+    //    // extract mail , surveyid and choice from event 
+    //    // here we have used  lodash chain to cain multiple 
+    //    // functions result of one function get passed to next chain and so on
+    //    //  finaly last function value() will return result after applying all the function
+    //    const p = new Path('/api/surveys/:surveyId/:choice');
+
+    //    _.chain(req.body)
+    //      .map(({ email, url }) => {
+    //        const match = p.test(new URL(url).pathname);
+    //        if (match) {
+    //          return { email, surveyId: match.surveyId, choice: match.choice };
+    //        }
+    //      })
+    //      .compact()
+    //      .uniqBy('email', 'surveyId')
+    //      .each(({ surveyId, email, choice }) => {
+    //        Survey.updateOne(
+    //          {
+    //            _id: surveyId,
+    //            recipients: {
+    //              $elemMatch: { email: email, responded: false }
+    //            }
+    //          },
+    //          {
+    //            $inc: { [choice]: 1 },
+    //            $set: { 'recipients.$.responded': true },
+    //            lastResponded : new Date()             
+    //          }
+    //        ).exec();
+    //      })
+    //      .value();
+   
+    //    res.send({});
+    // });
+
+
+
+
     app.post('/api/surveys/webhook',(req,res) => {
-        res.send('reply comes from sendgrid :');
-        res.send({});
-    })
+      // extract mail , surveyid and choice from event 
+      // here we have used  lodash chain to cain multiple 
+      // functions result of one function get passed to next chain and so on
+      //  finaly last function value() will return result after applying all the function
+      _.chain(req.body)
+        .map(({ email }) => {
+            return {email};
+        })
+        .compact()
+        .uniqBy('email')
+        .each(({ email }) => {
+          console.log('updating response from email '+ email);
+          Survey.updateOne(
+            {
+              recipients: {
+                $elemMatch: { email: email, responded: false }
+              }
+            },
+            {
+              $inc: { 'yes': 1 },
+              $set: { 'recipients.$.responded': true },
+              lastResponded : new Date()   
+            }
+          ).exec();
+        })
+        .value();
+      res.send({});
+   });
+
+
     /**
      * on submition of any survey from UI this rout will be called
      * first create a newSurvey object of type surveys
