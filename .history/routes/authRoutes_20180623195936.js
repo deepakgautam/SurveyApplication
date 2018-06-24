@@ -57,7 +57,3 @@ app.get('/api/logout',(req, res) =>{
    });
 }
 
-app.get('/api/survey',(req,res) => {
-    console.log('thanks for your vote');
-    res.send('thanks for voting :)');
-   });
