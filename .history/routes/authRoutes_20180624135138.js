@@ -55,10 +55,9 @@ app.get('/api/logout',(req, res) =>{
     req.logout();
     res.redirect('/')
    });
+}
 
-   app.get('/api/survey',(req,res) => {
+app.get('/api/survey',(req,res) => {
     console.log('thanks for your vote');
     res.send('thanks for voting :)');
 });
-}
-
