@@ -28,8 +28,6 @@ export const submitSurvey = (values,history) =>async (dispatch) =>{
 export const fetchSurveys = () =>async (dispatch) =>{
     const res = await axios.get('/api/current_user');
     dispatch({type: FETCH_USER ,payload: res.data});
-    console.log('got survey data'+JSON.stringify(res.data));
-    alert('got survey data'+JSON.stringify(res.data));
     //  console.log('get survey data');
     //  alert('test');
     //  const res = await axios.get('/api/survey'); 
