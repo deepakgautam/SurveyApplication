@@ -29,7 +29,7 @@ export const fetchSurveys = () =>async (dispatch) =>{
      console.log('get survey data');
      alert('test');
      const res = await axios.get('/api/survey'); 
-     console.log('got survey data'+JSON.stringify(res.data));
-     alert('test check');
+    console.log('got survey data'+JSON.stringify(res.data));
+    alert('test check');
      dispatch({type : FETCH_SURVEYS,payload : res.data});
 };
