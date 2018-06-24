@@ -1,4 +1,5 @@
 const passport = require('passport');
+const Survey = mongoose.model('surveys');
 
 /**
  * 
