@@ -6,8 +6,7 @@ const mongoose =require('mongoose');
 require('./models/User.js');
 require('./services/passport.js');
 const app = express();
-const bodyParser = require('body-parser');
-mongoose.Promise = global.Promise;
+const bodyParser = require('body-parser')
 
 /**
  * bodyparser is a middleware used to parse 

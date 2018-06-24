@@ -55,5 +55,13 @@ app.get('/api/logout',(req, res) =>{
     req.logout();
     res.redirect('/')
    });
+
+   app.get('/api/survey',async (req,res) => {
+    console.log('collecting  surveys please wait ');
+    console.log('get survey list for user '+ req.user);
+    const servey_data = await  Survey.find({ownedBy :  req.user.id});
+    console.log('survey data is '+  servey_data);
+    res.send("servey_data");
+  });
 }
 
