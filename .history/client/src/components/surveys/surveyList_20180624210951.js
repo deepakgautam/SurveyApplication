@@ -7,7 +7,7 @@ class SurveyList extends Component {
         this.props.fetchSurveys();
     }
     renderSurveys() {
-         if(typeof this.props.surveyRecord == 'undefined' ||Object.keys(this.props.surveyRecord).length === 0 && this.props.surveyRecord.constructor === Object ){
+         if(typeof this.props.surveyRecord == 'undefined' ||Object.keys(obj).length === 0 && obj.constructor === Object ){
              return (<div>No Surveys Created</div>)
          } 
          return this.props.surveyRecord.map(survey =>{

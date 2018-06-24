@@ -92,7 +92,7 @@ module.exports= app => {
      *  send all the surveys created by a particular user
      */
     app.get('/api/surveysList',requireLogin ,async (req,res) => {
-        console.log('request survey data by user ',req.user);
+        console.log('request survey data by user 'req.user);
        const servey_data = await  Survey.find({ownedBy :  req.user.id});
        res.send(servey_data);
     });

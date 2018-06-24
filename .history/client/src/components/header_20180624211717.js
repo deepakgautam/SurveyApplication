@@ -3,7 +3,6 @@ import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect } from 'react-redux';
 import Payments from './payments'
-import Background from '../images/Year-end-survey-712.png'
 class  Header extends Component { 
   renderHeader() {
     switch(this.props.AuthUser) {
@@ -21,6 +20,16 @@ class  Header extends Component {
     }
  }
  render(){
+  var sectionStyle = {
+    width: "100%",
+    height: "850px",
+    backgroundImage:`url(${Background})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    maxHeight: "100%",
+    backgroundSize:"100% 100%",
+  };
     return (
       <nav>
         <div className="nav-wrapper">

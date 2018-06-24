@@ -3,15 +3,10 @@
 }
 #root > div > div > nav {
     background-color : #006400;
-    width: 100%;
-    margin: 10px,0px;
+    width: 98%;
+    margin: 2%;
 }
 .container {
     max-width: 100%;
     width: 100%;
- 
-}
-.survey_form {
-    margin :1%;
-    background-color :whitesmoke
 }

@@ -1,9 +1,8 @@
 import React,{Component} from 'react';
-import Background from '../images/Year-end-survey-712.png'
 class  Landing  extends Component {
     constructor(){
         super ();
-        this.state = { windowHeight : window.innerHeight-64+'px'};
+        this.state = { windowHeight : window.innerHeight+'px'};
     }
     getStyle() {
         return  {
@@ -15,6 +14,7 @@ class  Landing  extends Component {
          backgroundSize: "cover",
          maxHeight: "100%",
          backgroundSize:"100% 100%",
+         marginTop : '64px'
          }
     };
     render () {
@@ -24,3 +24,8 @@ class  Landing  extends Component {
     }
 };
 export default Landing;
+
+
+componentDidMount() {
+    this.props.currentUserAction();
+}

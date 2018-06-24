@@ -3,7 +3,7 @@ import Background from '../images/Year-end-survey-712.png'
 class  Landing  extends Component {
     constructor(){
         super ();
-        this.state = { windowHeight : window.innerHeight-64+'px'};
+        this.state = { windowHeight : window.innerHeight-30+'px'};
     }
     getStyle() {
         return  {

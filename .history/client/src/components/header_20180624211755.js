@@ -21,6 +21,16 @@ class  Header extends Component {
     }
  }
  render(){
+  var sectionStyle = {
+    width: "100%",
+    height: "850px",
+    backgroundImage:`url(${Background})`,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    maxHeight: "100%",
+    backgroundSize:"100% 100%",
+  };
     return (
       <nav>
         <div className="nav-wrapper">

@@ -7,40 +7,30 @@ import {connect } from 'react-redux';
 import * as actions from '../actions/index';
 import {bindActionCreators} from 'redux';
 import NewSurveys from '../components/surveys/newSurveys.js'
-import Background from '../images/Year-end-survey-712.png'
 
 class  App extends Component {
-    constructor(){
-        super ();
-        this.state = { windowHeight : window.innerHeight+'px'};
-    }
     componentDidMount() {
         this.props.currentUserAction();
     }
-    getStyle() {
-           return  {
-            width: "100%",
-            height: this.state.windowHeight,
-            backgroundImage:`url(${Background})`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            maxHeight: "100%",
-            backgroundSize:"100% 100%",
-            marginTop : '64px'
-            }
-    }
    render () {
-    let height = this.state.windowHeight;
+    var sectionStyle = {
+        width: "100%",
+        height: "850px",
+        backgroundImage:`url(${Background})`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        maxHeight: "100%",
+        backgroundSize:"100% 100%",
+      };
     return (
-        <div className="container">
+        <div className="container" style={{margin:'1%'}}>
             <BrowserRouter>
                 <div>
                   <Header/>
                   <Route exact path ="/landing" component ={Landing} />
                   <Route exact path ="/surveys/new" component ={NewSurveys} />
                   <Route exact path ="/dashboard" component ={Dashboard} />
-                  <Route exact path ="/" component ={Landing} />
                </div>
             </BrowserRouter>
         </div>   

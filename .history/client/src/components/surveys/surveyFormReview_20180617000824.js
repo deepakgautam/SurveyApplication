@@ -19,7 +19,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey,history }) => {
   });
 
   return (
-    <div className="survey_form">
+    <div>
       <h5>Please confirm your entries</h5>
       {reviewFields}
       <button

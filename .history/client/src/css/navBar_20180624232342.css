@@ -9,9 +9,9 @@
 .container {
     max-width: 100%;
     width: 100%;
- 
+    background-color: gray
 }
 .survey_form {
     margin :1%;
-    background-color :whitesmoke
+    background-color: gray
 }

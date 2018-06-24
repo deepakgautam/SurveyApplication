@@ -18,29 +18,18 @@ class  App extends Component {
         this.props.currentUserAction();
     }
     getStyle() {
-           return  {
-            width: "100%",
-            height: this.state.windowHeight,
-            backgroundImage:`url(${Background})`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            maxHeight: "100%",
-            backgroundSize:"100% 100%",
-            marginTop : '64px'
-            }
+        return window.innerHeight;
     }
    render () {
     let height = this.state.windowHeight;
     return (
-        <div className="container">
+        <div className="container"  style={this.getStyle()}>
             <BrowserRouter>
                 <div>
                   <Header/>
                   <Route exact path ="/landing" component ={Landing} />
                   <Route exact path ="/surveys/new" component ={NewSurveys} />
                   <Route exact path ="/dashboard" component ={Dashboard} />
-                  <Route exact path ="/" component ={Landing} />
                </div>
             </BrowserRouter>
         </div>   
